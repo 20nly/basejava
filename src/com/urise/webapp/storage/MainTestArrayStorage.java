@@ -11,20 +11,20 @@ public class MainTestArrayStorage {
 
     public static void main(String[] args) {
         Resume r1 = new Resume();
-        r1.uuid = "uuid1";
+        r1.setUuid("uuid1");
         Resume r2 = new Resume();
-        r2.uuid = "uuid2";
+        r1.setUuid("uuid2");
         Resume r3 = new Resume();
-        r3.uuid = "uuid3";
-        Resume r4 = new Resume(); 
-        r4.uuid = "uuid4";
+        r1.setUuid("uuid3");
+        Resume r4 = new Resume();
+        r1.setUuid("uuid4");
 
         ARRAY_STORAGE.save(r1);
         ARRAY_STORAGE.save(r2);
         ARRAY_STORAGE.save(r3);
         ARRAY_STORAGE.save(r4);
 
-        System.out.println("Get r1: " + ARRAY_STORAGE.get("uuid1"));
+        System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.getUuid()));
         System.out.println("Get r4: " + ARRAY_STORAGE.get("uuid4"));
         System.out.println("Size: " + ARRAY_STORAGE.size());
 
@@ -33,7 +33,7 @@ public class MainTestArrayStorage {
 
         System.out.print( "test 1 delete");
         printAll();
-        ARRAY_STORAGE.delete(r1.uuid);
+        ARRAY_STORAGE.delete(r1.getUuid());
         System.out.println();
 
         System.out.print( "test 2 clear");
